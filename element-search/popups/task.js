@@ -1,10 +1,31 @@
-const modalId = document.getElementById("modal_main");
-const modalContent = document.getElementsByClassName("modal__content");
-const modalClose = document.getElementsByClassName("modal__close");
-const modalActive = document.getElementsByClassName("modal modal_active");
+function modalElements () {
+    const modalMain = document.getElementById("modal_main");
+    const modalSuccess = document.getElementById("modal_success");
+    const modalAdd = (modalAddElement) => {
+        modalAddElement.classList.add("modal_active");
+    };
+    const modalClose = (modalCloseElement) => {
+        modalCloseElement.classList.remove("modal_active");
+    };
 
-function modalElement () {
-    modalId
-}
+    for (let item of modalMain.getElementsByClassName("modal__close")) {
+        item.onclick = () => {
+            modalClose(modalMain);
+        }
+    };
+    for (let item of modalSuccess.getElementsByClassName("modal_success")) {
+        item.onclick = () => {
+            modalClose(modalSuccess)
+        }
+    };
+    for (let item of modalMain.getElementsByClassName("show-success")) {
+        item.onclick = () => {
+            modalClose(modalMain);
+            modalAdd(modalSuccess)
+        }
+    };
 
-modalElement();
+modalAdd(modalMain);
+};
+
+modalElements();
