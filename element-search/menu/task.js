@@ -1,11 +1,13 @@
 function menuLinks() {
-const menuClick = document.querySelectorAll("li.menu__item");
-const menuMain = document.querySelector("ul.menu_sub");
+const menuClick = document.querySelectorAll("ul.menu__item");
+const menuMain = document.querySelectorAll(".menu_sub");
 
 
-for (let item of menuClick) {
-    item.onclick = () => {
-        menuMain.classList.toggle("menu_active");
+for (let item of menuMain) {
+    item.onclick = function clickFunc () {
+        console.log(this);
+        const menuSub = this.closest("li.menu__item");
+        menuSub.classList.toggle("menu_active");
         return false;
     }
 }

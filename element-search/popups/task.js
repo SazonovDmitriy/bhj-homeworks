@@ -8,18 +8,23 @@ function modalElements () {
         modalCloseElement.classList.remove("modal_active");
     };
 
-    for (let item of modalMain.getElementsByClassName("modal__close")) {
-        item.onclick = () => {
-            modalClose(modalMain);
-        }
+    for (let item of document.getElementsByClassName("modal__close")) {
+        item.onclick = function modalModal() {
+            const divs = document.getElementsByTagName("div");
+            console.log(this);
+            const close = this.closest(".modal");
+            close.classList.remove("modal__active");
+        };
     };
-    for (let item of modalSuccess.getElementsByClassName("modal_success")) {
+    for (let item of modalSuccess.getElementsByClassName("modal__close")) {
         item.onclick = () => {
-            modalClose(modalSuccess)
+            console.log(this)
+            modalClose(modalSuccess);
         }
     };
     for (let item of modalMain.getElementsByClassName("show-success")) {
         item.onclick = () => {
+            console.log(this)
             modalClose(modalMain);
             modalAdd(modalSuccess)
         }
