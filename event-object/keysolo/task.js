@@ -17,6 +17,19 @@ class Game {
   }
 
   registerEvents() {
+    const sym = document.getElementsByClassName("currentSymbol");
+    
+    function key (event) {
+      return event instanceof KeyboardEvent;
+    };
+
+    addEventListener('keydown', key);
+    addEventListener('keyup', key);
+    if (sym === 2) {
+      this.success();
+    } else if (!sym === 2) {
+      this.fail();
+    }
     /*
       TODO:
       Написать обработчик события, который откликается
