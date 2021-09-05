@@ -17,26 +17,11 @@ class Game {
   }
 
   registerEvents() {
-    const sym = document.getElementsByClassName("currentSymbol");
-    
-    function key (event) {
-      return event instanceof KeyboardEvent;
-    };
-
-    addEventListener('keydown', key);
-    addEventListener('keyup', key);
-    if (sym === 2) {
-      this.success();
-    } else if (!sym === 2) {
-      this.fail();
+    const onKey = (e) => {
+      console.log(e.code, this.currentSymbol.textContent)
+      e.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase() ? this.success() : this.fail(); // Как сделать чтобы отжатие клавиши Shift, не вело к ошибке? 
     }
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-     */
+    document.addEventListener("keyup", onKey);
   }
 
   success() {

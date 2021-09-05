@@ -22,7 +22,6 @@ for (let item of menuMain) {
 
 
 
-
 // menuLink.addEventListener("click", function(event) {
 //     console.log(this)
 //     const target = event.target;
