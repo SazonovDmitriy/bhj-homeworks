@@ -18,8 +18,7 @@ class Game {
 
   registerEvents() {
     const onKey = (e) => {
-      console.log(e.code, this.currentSymbol.textContent)
-      e.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase() ? this.success() : this.fail(); // Как сделать чтобы отжатие клавиши Shift, не вело к ошибке? 
+      e.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase() ? this.success() : this.fail(); 
     }
     document.addEventListener("keyup", onKey);
   }

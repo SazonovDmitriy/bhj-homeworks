@@ -1,6 +1,6 @@
 const reveals = Array.from(document.querySelectorAll(".reveal"));
 
-addEventListener("scroll", () => {
+document.addEventListener("scroll", () => {
     for (let reveal of reveals) {
     const view = window.innerHeight;
     const elementTop = reveal.getBoundingClientRect().top;
