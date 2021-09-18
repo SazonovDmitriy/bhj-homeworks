@@ -1,15 +1,24 @@
 const chatWidget = document.querySelector(".chat-widget");
+const chatWidgetSide = document.querySelector(".chat-widget__side");
 const chat = document.querySelector(".chat-widget__messages");
+const inputChat = document.querySelector(".chat-widget__input");
 
-chatWidget.onclick = () => {
+let arrMessageUser = [];
+let arrMessageBot = [
+    'Здравствуйте',
+    'Вы клёвый',
+    'Я тоже клёвый'
+];
+
+chatWidgetSide.addEventListener('click', () => {
     chatWidget.classList.add("chat-widget_active");
-}
+});
 
-document.querySelector("input").addEventListener('keydown', function(e) {
-    console.log(this.textContent, e.code)
-    if (e.code === 13) {
-        console.log(this.textContent);
-        chat
+
+
+inputChat.addEventListener('keydown', function(e) {
+    if (e.code === a && inputChat !== '') {
+        arrMessageUser[inputChat]
         document.querySelector(".message").classList.add("message_client")
     }
-})
+});

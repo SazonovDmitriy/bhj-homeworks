@@ -1,14 +1,44 @@
-const book = document.querySelectorAll(".book");
-const fontSize = document.querySelectorAll(".font-size");
+const book = document.querySelector(".book");
+const fontSize = book.querySelectorAll(".font-size");
 
-for (let i of document.querySelectorAll(".font-size")) {
-    i.onclick = function(e)  {
-        console.log(this.closest(".book"))
-        const thisBook = this.closest(".book");
-        this.classList.remove("font-size_active");
-            if (this.classList.remove("font-size_active")) {
-                thisBook.classList.add("book_fs-big")
+
+book.addEventListener("click", function(event) {
+    event.preventDefault();
+    const target = event.target;
+
+    if (target.classList.contains("font-size")) {
+        switch (target.dataset.size) {
+            case "small": {
+                changeButton(fontSize, target);
+                size(book, "book book_fs-small");
+                break;
             }
-        return false
+            case "big": {
+                changeButton(fontSize, target);
+                size(book, "book book_fs-big");
+                break;
+            }
+            default: {
+                changeButton(fontSize, target);
+                size(book, "book");
+            }
+        }
     }
+});
+
+function clearButtons (btn) {
+    btn.forEach(element => element.classList.remove("font-size_active"));
+};
+
+function addButton (btn) {
+    btn.classList.add("font-size_active");
+};
+
+function changeButton(allButtons, targetButton) {
+    clearButtons(allButtons);
+    addButton(targetButton)
+};
+
+function size(bookElement, size) {
+    bookElement.className = size;
 }
