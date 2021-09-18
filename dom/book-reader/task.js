@@ -41,4 +41,4 @@ function changeButton(allButtons, targetButton) {
 
 function size(bookElement, size) {
     bookElement.className = size;
-}
+};
