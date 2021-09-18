@@ -1,9 +1,8 @@
-const checkbox = document.querySelectorAll(".checkbox");
-const check = document.querySelectorAll(".interest__check");
-const interest = document.querySelectorAll(".interest");
-const interestsActive = document.querySelectorAll(".interests_active");
+const labelCheckbox = document.querySelector("label");
+const ulCheckbox = document.querySelectorAll("ul");
 
-document.addEventListener("click", function(e) {
+
+labelCheckbox.addEventListener("click", function(e) {
     const target = e.target;
-    
-})
+    console.log(target)
+});
