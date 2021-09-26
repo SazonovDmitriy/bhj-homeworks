@@ -17,7 +17,7 @@ function getRandom(max) {
     return Math.floor(Math.random(0, 1) * max)
 };
 
-const random = arrMessageBot.forEach( () => getRandom(arrMessageBot.length));
+const random = () => arrMessageBot[getRandom(arrMessageBot.length)];
 
 chatWidgetSide.addEventListener('click', () => {
     chatWidget.classList.add("chat-widget_active");
@@ -50,7 +50,7 @@ function messageBot() {
     chat.innerHTML += `<div class="message">
     <div class="message__time">${date}</div>
     <div class="message__text">
-      ${random}
+      ${random()}
     </div>
   </div>
   `;
