@@ -3,9 +3,6 @@ const ulCheckbox = document.querySelector("ul").children;
 for (let item of ulCheckbox) {
     item.querySelector('label').addEventListener('click', checkMain);
     const labels = item.querySelector('ul').children;
-    for (let i of labels) {
-        i.querySelector('label').addEventListener('click', checkChildren)
-    }
 };
 
 function checkMain(event) {
@@ -26,13 +23,3 @@ function checkMain(event) {
         }
     }
 };
-
-function checkChildren(event) {
-    const target = event.target;
-    const inputs = target.closest('label');
-    if (target.getAttribute("checked")) {
-        for (let i of inputs) {
-            i.querySelector('input').checked = false;
-        }
-    }
-}

@@ -71,9 +71,9 @@ class Autocomplete {
     let arr = [];
     const obj = Array.from(this.input.options);
     for (let i = 0; i < obj.length; i++) {
-      if (obj[i].textContent) {
+      if (obj[i].text) {
         arr.push({
-          text: obj[i].textContent,
+          text: obj[i].text,
           value: obj[i].value
         })
       }
